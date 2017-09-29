@@ -5,7 +5,9 @@
   Time: 16:13
   To change this template use File | Settings | File Templates.
 --%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/frameset.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <HTML xmlns="http://www.w3.org/1999/xhtml">
 <HEAD>
     <META http-equiv=Content-Type content="text/html; charset=utf-8">
@@ -50,14 +52,14 @@
                                         <TR>
                                             <TD style="HEIGHT: 28px" width=80>登 录 名：</TD>
                                             <TD style="HEIGHT: 28px" width=150><INPUT id=txtName
-                                                                                      style="WIDTH: 130px" name=username></TD>
+                                                                                      style="WIDTH: 130px" name="username"></TD>
                                             <TD style="HEIGHT: 28px" width=370><SPAN
                                                     id=RequiredFieldValidator3
                                                     style="FONT-WEIGHT: bold; VISIBILITY: hidden; COLOR: white">请输入登录名</SPAN></TD></TR>
                                         <TR>
                                             <TD style="HEIGHT: 28px">登录密码：</TD>
                                             <TD style="HEIGHT: 28px"><INPUT id=txtPwd style="WIDTH: 130px"
-                                                                            type=password name=password></TD>
+                                                                            type=password name="password"></TD>
                                             <TD style="HEIGHT: 28px"><SPAN id=RequiredFieldValidator4
                                                                            style="FONT-WEIGHT: bold; VISIBILITY: hidden; COLOR: white">请输入密码</SPAN></TD></TR>
 

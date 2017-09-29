@@ -41,12 +41,11 @@ public class UserAction extends ActionSupport{
         user.setPassword(password);
         User userExit = userService.login(user);
 
-
         if (userExit != null) {//成功
             //使用session保持登陆状态
             HttpServletRequest request = ServletActionContext.getRequest();
             request.getSession().setAttribute("user",userExit);
-            return "loginSuccess";
+            return "loginsuccess";
         } else {
             return "login";
         }

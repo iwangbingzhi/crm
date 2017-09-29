@@ -7,7 +7,8 @@
 <!--        class属性不写action全路径了，因为在spring配置文件中已创建了action对象，再写就创建2次了，
 只需要写spring配置的action的bean的id值-->
         <action name="user_*" class="userAction" method="{1}">
-            <result name="login">/login.htm</result>
+            <result name="loginsuccess">index.htm</result>
+            <result name="login">login.jsp</result>
         </action>
     </package>
 </struts>

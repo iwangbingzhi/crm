@@ -12,6 +12,11 @@
       </configuration>
       <facet type="Struts2" name="Struts 2">
         <configuration>
+          <fileset id="s2fileset" name="My Fileset " removed="false">
+            <file>file://$MODULE_DIR$/src/struts.xml</file>
+            <file>jar://F:/javaweb类库/ssh整合jar包/struts2-core-2.3.24.jar!/struts-default.xml</file>
+            <file>jar://F:/javaweb类库/ssh整合jar包/struts2-spring-plugin-2.3.24.jar!/struts-plugin.xml</file>
+          </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
       </facet>
@@ -26,7 +31,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" />
+          <unit-entry name="hibernate.cfg.xml" value="1ea78c51-6c20-4b0b-b5b6-b18cd9d7c12d" />
           <unit-entry name="sessionFactory" value="dataSource" />
         </datasource-map>
         <naming-strategy-map />
