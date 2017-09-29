@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="demo1" extends="struts-default" namespace="/">
+<!--        class属性不写action全路径了，因为写action对象创建2次，写spring配置的action的bean的id值-->
+        <action name="user_*" class="com.crm.action.UserAction" method="{1}">
+            <result name="login">/login.htm</result>
+        </action>
+    </package>
+</struts>
