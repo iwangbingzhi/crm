@@ -10,5 +10,10 @@
             <result name="loginsuccess">index.htm</result>
             <result name="login">login.jsp</result>
         </action>
+        <action name="customer_*" class="customerAction" method="{1}">
+            <result name="toAddPage">/jsp/customer/add.jsp</result>
+            <!--添加之后的页面-->
+            <result name="add">/jsp/success.jsp</result>
+        </action>
     </package>
 </struts>

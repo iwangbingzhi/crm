@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.crm.entity.Customer" table="customer">
+        <id name="cid" column="cid">
+            <generator class="native"/>
+        </id>
+        <property name="custName" column="custName"/>
+        <property name="custLevel" column="custLevel"/>
+        <property name="custSource" column="custSource"/>
+        <property name="custPhone" column="custPhone"/>
+        <property name="custMobile" column="custMobile"/>
+    </class>
+</hibernate-mapping>
