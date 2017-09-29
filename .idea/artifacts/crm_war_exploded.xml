@@ -8,7 +8,7 @@
           <element id="module-output" name="crm" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="ssh" />
+          <element id="library" level="project" name="ssh整合jar包" />
         </element>
       </element>
     </root>

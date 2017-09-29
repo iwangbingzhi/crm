@@ -1,6 +1,7 @@
 package com.crm.service;
 
 import com.crm.dao.UserDao;
+import com.crm.entity.User;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -13,4 +14,10 @@ public class UserService {
     }
 
     private UserDao userDao;
+
+    //调用dao里面的方法
+    public User login(User user) {
+        return userDao.loginUser(user);
+
+    }
 }

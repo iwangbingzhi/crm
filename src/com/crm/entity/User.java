@@ -7,7 +7,7 @@ public class User {
     private Integer uid;
     private String username;
     private String password;
-    private Integer address;
+    private String address;
 
     public Integer getUid() {
         return uid;
@@ -33,11 +33,11 @@ public class User {
         this.password = password;
     }
 
-    public Integer getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Integer address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 }
