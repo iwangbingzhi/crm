@@ -25,4 +25,16 @@ public class CustomerService {
     public List<Customer> findAll() {
         return customerDao.findAll();
     }
+
+    public Customer findOne(int cid) {
+        return customerDao.findOne(cid);
+    }
+
+    public void delete(Customer c) {
+        customerDao.delete(c);
+    }
+
+    public void update(Customer customer) {
+        customerDao.update(customer);
+    }
 }

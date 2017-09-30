@@ -1,10 +1,11 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<TITLE>添加客户</TITLE> 
+<TITLE>修改客户</TITLE>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
 <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
@@ -15,9 +16,9 @@
 </HEAD>
 <BODY>
 	<FORM id=form1 name=form1
-		action="${pageContext.request.contextPath }/customerServlet?method=editsubmit"
+		action="${pageContext.request.contextPath }/customer_update.action"
 		method=post>
-		<input type="hidden" name="custId" value="${customer.custId }"/>
+		<input type="hidden" name="cid" value="${customer.cid }"/>
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
@@ -45,6 +46,7 @@
 								<TD height=2></TD>
 							</TR>
 						</TABLE>
+
 						<TABLE cellSpacing=0 cellPadding=5  border=0>
 							<TR>
 								<td>客户名称：</td>
@@ -65,11 +67,6 @@
 								<INPUT class=textbox id=sChannel2
 														style="WIDTH: 180px" maxLength=50 name="custSource" value="${customer.custSource }">
 								</td>
-								<td>联系人：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custLinkman" value="${customer.custLinkman }">
-								</td>
 							</TR>
 							<TR>
 								
@@ -85,31 +82,7 @@
 														style="WIDTH: 180px" maxLength=50 name="custMobile" value="${customer.custMobile }">
 								</td>
 							</TR>
-							
-							<TR>
-								<td>联系地址 ：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custAddress" value="${customerDetail.custAddress }">
-								</td>
-								<td>邮政编码 ：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custZip" value="${customerDetail.custZip }">
-								</td>
-							</TR>
-							<TR>
-								<td>客户传真 ：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custFax" value="${customerDetail.custFax }">
-								</td>
-								<td>客户网址 ：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custWebsite" value="${customerDetail.custWebsite }">
-								</td>
-							</TR>
+
 							<tr>
 								<td rowspan=2>
 								<INPUT class=button id=sButton2 type=submit

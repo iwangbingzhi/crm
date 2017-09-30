@@ -13,8 +13,14 @@
         <action name="customer_*" class="customerAction" method="{1}">
             <result name="toAddPage">/jsp/customer/add.jsp</result>
             <!--添加之后的页面-->
-            <result name="add">/jsp/success.jsp</result>
+            <result name="add" type="redirectAction">customer_list.action</result>
+
             <result name="list">/jsp/customer/list.jsp</result>
+            <!--删除之后的操作-->
+            <result name="delete" type="redirectAction">customer_list.action</result>
+            <!--到修改页面-->
+            <result name="showCustomer">jsp/customer/edit.jsp</result>
+            <result name="update" type="redirectAction">customer_list.action</result>
         </action>
     </package>
 </struts>

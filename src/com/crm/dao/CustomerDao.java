@@ -11,4 +11,10 @@ public interface CustomerDao {
     void add(Customer customer);
 
     List<Customer> findAll();
+
+    Customer findOne(int cid);
+
+    void delete(Customer c);
+
+    void update(Customer customer);
 }

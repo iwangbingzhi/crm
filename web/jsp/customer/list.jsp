@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -88,6 +89,7 @@
 													<TD>手机</TD>
 													<TD>操作</TD>
 												</TR>
+											<%--数据放入域对象采用如下方式(此方法性能差)--%>  <%--(注意是英文的问号！！！！！)--%>
 												<c:forEach items="${list }" var="customer">
 												<TR
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
@@ -97,12 +99,31 @@
 													<TD>${customer.custPhone }</TD>
 													<TD>${customer.custMobile }</TD>
 													<TD>
-													
+														<a href="${pageContext.request.contextPath}/customer_delete.action?cid=${customer.cid}">删除</a>
+
+														<a href="${pageContext.request.contextPath }/customer_showCustomer.action?cid=${customer.cid}">修改</a>
 													</TD>
 												</TR>
 												
 												</c:forEach>
+											<%--数据放入值栈采用如下方式
+											<s:iterator value="list" var="cus">
+												<TR
+														style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
+													<TD><s:property value="#cus.custName"/> </TD>
+													<TD><s:property value="#cus.custLevel"/></TD>
+													<TD><s:property value="#cus.custSource"/></TD>
+													<TD><s:property value="#cus.custPhone"/></TD>
+													<TD><s:property value="#cus.custMobile"/></TD>
+													<TD>
+														<a href="${pageContext.request.contextPath}/customer_delete.action?cid=<s:property value="#cus.cid"/>">删除</a>
+													</TD>
+													<TD>
+														<a href="${pageContext.request.contextPath}/customer_showCustomer.action?cid=<s:property value="#cus.cid"/>">修改</a>
+													</TD>
 
+												</TR>
+											</s:iterator>--%>
 											</TBODY>
 										</TABLE>
 									</TD>

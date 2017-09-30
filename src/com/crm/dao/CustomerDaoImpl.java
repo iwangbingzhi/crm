@@ -15,9 +15,23 @@ public class CustomerDaoImpl  extends HibernateDaoSupport implements CustomerDao
         this.getHibernateTemplate().save(customer);
     }
 
-    //客户列表功能
+    //显示出客户列表功能
     public List<Customer> findAll() {
         return (List<Customer>) this.getHibernateTemplate().find("from Customer ");
+    }
 
+    //删除客户
+    public Customer findOne(int cid) {
+        return this.getHibernateTemplate().get(Customer.class,cid);
+    }
+
+    @Override
+    public void delete(Customer c) {
+        this.getHibernateTemplate().delete(c);
+    }
+
+    //修改客户数据
+    public void update(Customer customer) {
+        this.getHibernateTemplate().update(customer);
     }
 }
