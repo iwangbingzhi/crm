@@ -84,7 +84,6 @@
 													<TD>客户名称</TD>
 													<TD>客户级别</TD>
 													<TD>客户来源</TD>
-													<TD>联系人</TD>
 													<TD>电话</TD>
 													<TD>手机</TD>
 													<TD>操作</TD>
@@ -95,7 +94,6 @@
 													<TD>${customer.custName }</TD>
 													<TD>${customer.custLevel }</TD>
 													<TD>${customer.custSource }</TD>
-													<TD>${customer.custLinkman }</TD>
 													<TD>${customer.custPhone }</TD>
 													<TD>${customer.custMobile }</TD>
 													<TD>

@@ -4,6 +4,9 @@ import com.crm.entity.Customer;
 import com.crm.service.CustomerService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import org.apache.struts2.ServletActionContext;
+
+import java.util.List;
 
 /**
  * Created by 王炳智 on 2017/9/29.
@@ -35,6 +38,9 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 
     //客户列表方法
     public String list(){
+        List<Customer> list = customerService.findAll();
+        //放到域对象
+        ServletActionContext.getRequest().setAttribute("list",list);
         return "list";
     }
 }

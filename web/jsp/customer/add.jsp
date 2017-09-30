@@ -90,8 +90,6 @@
 								</td>
 							</tr>
 						</TABLE>
-						
-						
 					</TD>
 					<TD width=15 background="${pageContext.request.contextPath }/images/new_023.jpg">
 					<IMG src="${pageContext.request.contextPath }/images/new_023.jpg" border=0></TD>
