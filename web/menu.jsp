@@ -137,6 +137,10 @@ A.active {
 	<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/customer_list.action"
 		target=main>－ 客户列表</A></TD>
 </TR>
+<TR>
+	<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/customer_listpage.action"
+						   target=main>－ 分页客户列表</A></TD>
+</TR>
 												
 											</TBODY>
 										</TABLE>

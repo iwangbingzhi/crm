@@ -1,6 +1,7 @@
 package com.crm.action;
 
 import com.crm.entity.Customer;
+import com.crm.entity.PageBean;
 import com.crm.service.CustomerService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -80,5 +81,24 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
     public String update(){
         customerService.update(customer);
         return "update";
+    }
+
+    public Integer getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(Integer currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    //分页方法
+    //属性封装获取当前页
+    private Integer currentPage = 1;
+    public String listpage(){
+        //调用service方法封装
+        PageBean pageBean = customerService.listpage(currentPage);
+        //数据放到域对象中
+        ServletActionContext.getRequest().setAttribute("pageBean",pageBean);
+        return "listpage";
     }
 }

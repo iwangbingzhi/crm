@@ -21,6 +21,7 @@
             <!--到修改页面-->
             <result name="showCustomer">jsp/customer/edit.jsp</result>
             <result name="update" type="redirectAction">customer_list.action</result>
+            <result name="listpage">/jsp/customer/listpage.jsp</result>
         </action>
     </package>
 </struts>

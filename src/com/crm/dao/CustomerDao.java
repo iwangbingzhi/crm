@@ -17,4 +17,10 @@ public interface CustomerDao {
     void delete(Customer c);
 
     void update(Customer customer);
+
+    void listpage(Integer currentPage);
+
+    int findCount();
+
+    List<Customer> findPage(int begin, int pageSize);
 }
