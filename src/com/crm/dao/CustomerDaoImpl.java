@@ -13,7 +13,6 @@ import java.util.List;
  * Created by 王炳智 on 2017/9/29.
  */
 public class CustomerDaoImpl  extends HibernateDaoSupport implements CustomerDao {
-
     //添加客户功能
     public void add(Customer customer) {
         this.getHibernateTemplate().save(customer);
@@ -29,7 +28,6 @@ public class CustomerDaoImpl  extends HibernateDaoSupport implements CustomerDao
         return this.getHibernateTemplate().get(Customer.class,cid);
     }
 
-    @Override
     public void delete(Customer c) {
         this.getHibernateTemplate().delete(c);
     }
@@ -76,5 +74,19 @@ public class CustomerDaoImpl  extends HibernateDaoSupport implements CustomerDao
         return list;
     }
 
+    //条件查询 三种方式做到
+    public List<Customer> findCondition(Customer customer) {
+       /*   //第一种 使用hibernate底层代码实现（了解）
+        SessionFactory sessionFactory = this.getHibernateTemplate().getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Customer  where custName like ?");
+        query.setParameter(0,"%"+customer.getCustName()+"%");
+        List<Customer> list = query.list();*/
 
+        //第二种 调用hibernateTemplete模板中的find方法实现
+        List<Customer> list = (List<Customer>) this.getHibernateTemplate().find
+                ("from Customer  where custName like ?", "%" + customer.getCustName() + "%");
+
+        return list;
+    }
 }

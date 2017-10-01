@@ -101,4 +101,21 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
         ServletActionContext.getRequest().setAttribute("pageBean",pageBean);
         return "listpage";
     }
+
+
+    //条件查询 如果输入客户名称，根据客户名称查询 如果不输入任何内容，查询所有
+    public String listcondition(){
+
+        if(customer.getCustName()!=null && !"".equals(customer.getCustName())){
+            //不为空
+            List<Customer> list = customerService.findCondition(customer);
+            //返回的list放进域对象
+            ServletActionContext.getRequest().setAttribute("list",list);
+        }else {
+            //不输入任何内容，查询所有
+            list = customerService.findAll();
+        }
+        return "listcondition";
+    }
+
 }

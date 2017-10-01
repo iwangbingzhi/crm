@@ -23,4 +23,6 @@ public interface CustomerDao {
     int findCount();
 
     List<Customer> findPage(int begin, int pageSize);
+
+    List<Customer> findCondition(Customer customer);
 }

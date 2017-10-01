@@ -69,4 +69,8 @@ public class CustomerService {
         pageBean.setList(list);
         return pageBean;
     }
+
+    public List<Customer> findCondition(Customer customer) {
+        return customerDao.findCondition(customer);
+    }
 }
