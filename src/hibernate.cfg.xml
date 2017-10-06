@@ -11,5 +11,6 @@
 
         <mapping resource="com/crm/entity/User.hbm.xml"/>
         <mapping resource="com/crm/entity/Customer.hbm.xml"/>
+        <mapping resource="com/crm/entity/LinkMan.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

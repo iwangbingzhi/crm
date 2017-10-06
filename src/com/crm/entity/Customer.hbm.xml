@@ -12,5 +12,10 @@
         <property name="custSource" column="custSource"/>
         <property name="custPhone" column="custPhone"/>
         <property name="custMobile" column="custMobile"/>
+    <!--表示客户所有的联系人-->
+        <set name="setlinkman">
+            <key column="clid"/>
+            <one-to-many class="com.crm.entity.LinkMan"/>
+        </set>
     </class>
 </hibernate-mapping>

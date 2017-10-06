@@ -24,5 +24,10 @@
             <result name="listpage">/jsp/customer/listpage.jsp</result>
             <result name="listcondition">/jsp/customer/list.jsp</result>
         </action>
+        <action name="linkman_*" class="linkManAction" method="{1}">
+            <!--到添加页面-->
+            <result name="toAddPage">/jsp/linkman/add.jsp</result>
+            <result name="addLinkMan">/jsp/success.jsp</result>
+        </action>
     </package>
 </struts>
