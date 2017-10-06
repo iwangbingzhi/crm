@@ -5,6 +5,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import java.util.List;
@@ -83,9 +84,19 @@ public class CustomerDaoImpl  extends HibernateDaoSupport implements CustomerDao
         query.setParameter(0,"%"+customer.getCustName()+"%");
         List<Customer> list = query.list();*/
 
-        //第二种 调用hibernateTemplete模板中的find方法实现
+        //第二种 调用hibernateTemplete模板中的find方法实现（掌握）
+/*
         List<Customer> list = (List<Customer>) this.getHibernateTemplate().find
                 ("from Customer  where custName like ?", "%" + customer.getCustName() + "%");
+*/
+
+        //第三种 (常用)
+        //1.创建离线对象
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Customer.class);
+        //2.设置对实体类哪个属性
+        detachedCriteria.add(Restrictions.like("custName","%"+customer.getCustName()+"%"));
+        //3.调用hibernate模板的方法 放list集合
+        List<Customer> list = (List<Customer>) this.getHibernateTemplate().findByCriteria(detachedCriteria);
 
         return list;
     }
