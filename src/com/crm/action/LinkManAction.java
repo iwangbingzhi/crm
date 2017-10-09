@@ -6,8 +6,11 @@ import com.crm.service.CustomerService;
 import com.crm.service.LinkManService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan> {
@@ -30,7 +33,16 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
         return "toAddPage";
     }
     //添加数据到数据库
-    public String addLinkMan(){
+    public String addLinkMan() throws IOException {
+        //判断是否需要上传文件
+        if(upload != null) {
+            //在服务器文件夹里面创建文件
+            File fileservice = new File("g:\\sshimage" + "/" + uploadFileName);
+            //把上传文件复制到服务器文件中
+            FileUtils.copyFile(upload, fileservice);
+        }
+
+
         /*可以封装联系人信息
         但是cid是客户的Id不能够直接封装
         把cid封装到实体类的customer里
@@ -53,5 +65,31 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
     public LinkMan getModel() {
         return linkMan;
     }
+
+    /*上传文件
+    * 需要上传文件流
+    * 需要上传文件名称
+    *1.在action成员变量位置定义变量 一个表示上传文件 一个表示文件名称
+    * 2.生成变量的get set
+    *服务器只认mime类型
+    *
+    * struts上传文件 默认是2m
+    * */
+    //上传文件 变量名称是表单中文件上传项的name
+    private File upload;
+
+    //上传文件名称 表单里面文件上传项name值+FileName
+    private String uploadFileName;
+
+    public  File   getUpload() {
+        return upload;
+    }public void   setUpload(File upload) {
+        this.upload = upload;
+    }public String getUploadFileName() {
+        return uploadFileName;
+    }public void   setUploadFileName(String uploadFileName) {
+        this.uploadFileName = uploadFileName;
+    }
+
 }
 
