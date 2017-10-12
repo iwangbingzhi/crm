@@ -17,7 +17,7 @@
 	<FORM id=form1 name=form1
 		action="${pageContext.request.contextPath }/linkmanServlet?method=editsubmit"
 		method=post>
-		<input type="hidden" name="lkmId" value="${linkman.lkmId }"/>
+		<input type="hidden" name="lkmId" value="${linkman.lkmid }"/>
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>

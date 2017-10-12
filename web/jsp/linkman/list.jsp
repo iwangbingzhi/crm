@@ -85,6 +85,7 @@
 													<TD>性别</TD>
 													<TD>办公电话</TD>
 													<TD>手机</TD>
+													<td>所属客户</td>
 													<TD>操作</TD>
 												</TR>
 												<c:forEach items="${list }" var="linkman">
@@ -94,11 +95,12 @@
 													<TD>${linkman.lkmGender }</TD>
 													<TD>${linkman.lkmPhone }</TD>
 													<TD>${linkman.lkmMobile }</TD>
+													<td>${linkman.customer.custName}</td>  <%--配置过滤器 防止no session的情况出现--%>
 													
 													<TD>
-													<a href="${pageContext.request.contextPath }/linkmanServlet?method=edit&lkmId=${linkman.lkmId}">修改</a>
-													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/linkmanServlet?method=delete&lkmId=${linkman.lkmId}">删除</a>
+													<a href="${pageContext.request.contextPath }/linkman_updateLinkMan.action?linkid=${linkman.linkid}">修改</a>
+
+													<a href="${pageContext.request.contextPath }">删除</a>
 													</TD>
 												</TR>
 												

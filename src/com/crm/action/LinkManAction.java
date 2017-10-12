@@ -73,7 +73,7 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
     * 2.生成变量的get set
     *服务器只认mime类型
     *
-    * struts上传文件 默认是2m
+    * struts上传文件 默认是2m 可以自己设置上传文件大小 在default.properties struts.multipart.maxSize=2097152
     * */
     //上传文件 变量名称是表单中文件上传项的name
     private File upload;
@@ -89,6 +89,31 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
         return uploadFileName;
     }public void   setUploadFileName(String uploadFileName) {
         this.uploadFileName = uploadFileName;
+    }
+
+
+    //联系人列表方法
+    public String list(){
+        List<LinkMan> list = linkManService.listLinkMan();
+
+        ServletActionContext.getRequest().setAttribute("list",list);
+        return "list";
+    }
+
+    //到修改联系人
+    public String updateLinkMan(){
+        //使用模型驱动得到id值
+        int linkid = linkMan.getLinkid();
+        //根据id查询联系人对象
+        LinkMan linkMan = linkManService.findOne(linkid);
+
+        //需要所有的customer的list集合
+        List<Customer> list = customerService.findAll();
+
+        //上面一步得到联系人信息，再放进jsp页面的域对象中
+        ServletActionContext.getRequest().setAttribute("linkman",linkMan);
+        ServletActionContext.getRequest().setAttribute("list",list);
+        return "updatelinkman";
     }
 
 }
