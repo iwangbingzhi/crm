@@ -100,7 +100,7 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
         return "list";
     }
 
-    //到修改联系人
+    //到修改联系人页面
     public String updateLinkMan(){
         //使用模型驱动得到id值
         int linkid = linkMan.getLinkid();
@@ -114,6 +114,10 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
         ServletActionContext.getRequest().setAttribute("linkman",linkMan);
         ServletActionContext.getRequest().setAttribute("list",list);
         return "updatelinkman";
+    }
+    public String updateLinkman(){
+        linkManService.update(linkMan);
+        return "updateLinkman";
     }
 
 }

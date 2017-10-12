@@ -10,4 +10,6 @@ public interface LinkManDao {
     List<LinkMan> list();
 
     LinkMan findOne(int linkid);
+
+    void update(LinkMan linkMan);
 }

@@ -30,13 +30,14 @@
         <action name="linkman_*" class="linkManAction" method="{1}">
             <!--到添加页面-->
             <result name="toAddPage">/jsp/linkman/add.jsp</result>
-            <result name="addLinkMan">/jsp/success.jsp</result>
+            <result name="addLinkMan" type="redirectAction">linkman_list</result>
             <!--配置input错误结果-->
             <result name="input">/jsp/error.jsp</result>
             <!--联系人列表-->
             <result name="list">/jsp/linkman/list.jsp</result>
             <!--到修改联系人的页面-->
             <result name="updatelinkman">/jsp/linkman/edit.jsp</result>
+            <result name="updateLinkman" type="redirectAction">linkman_list</result>
         </action>
     </package>
 </struts>

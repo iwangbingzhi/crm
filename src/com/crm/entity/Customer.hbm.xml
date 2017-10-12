@@ -13,7 +13,9 @@
         <property name="custPhone" column="custPhone"/>
         <property name="custMobile" column="custMobile"/>
     <!--表示客户所有的联系人-->
-        <set name="setlinkman">
+        <!--inverse放弃双向维护，便于在修改客户的时候，联系人列表中的信息也跟随变化-->
+        <!--cascade级联删除和保存操作-->
+        <set name="setlinkman" inverse="true" cascade="delete,save-update">
             <key column="clid"/>
             <one-to-many class="com.crm.entity.LinkMan"/>
         </set>

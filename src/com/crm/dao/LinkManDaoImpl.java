@@ -27,4 +27,12 @@ public class LinkManDaoImpl extends HibernateDaoSupport implements LinkManDao {
     public LinkMan findOne(int linkid) {
         return this.getHibernateTemplate().get(LinkMan.class,linkid);
     }
+
+
+
+    //修改联系人方法
+    @Override
+    public void update(LinkMan linkMan) {
+        this.getHibernateTemplate().update(linkMan);
+    }
 }

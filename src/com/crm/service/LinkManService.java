@@ -19,12 +19,15 @@ public class LinkManService {
     }
 
     public List<LinkMan> listLinkMan() {
-
         return linkManDao.list();
     }
 
     public LinkMan findOne(int linkid) {
         return linkManDao.findOne(linkid);
 
+    }
+    //修改联系人操作
+    public void update(LinkMan linkMan) {
+        linkManDao.update(linkMan);
     }
 }

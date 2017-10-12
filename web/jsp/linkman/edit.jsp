@@ -15,9 +15,9 @@
 </HEAD>
 <BODY>
 	<FORM id=form1 name=form1
-		action="${pageContext.request.contextPath }/linkmanServlet?method=editsubmit"
+		action="${pageContext.request.contextPath }/linkman_updateLinkman.action"
 		method=post>
-		<input type="hidden" name="lkmId" value="${linkman.lkmid }"/>
+		<input type="hidden" name="linkid" value="${linkman.linkid }"/>
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
@@ -48,7 +48,14 @@
 						<TABLE cellSpacing=0 cellPadding=5  border=0>
 							<tr>
 								<td>所属客户：</td>
-								<td colspan="3"><input type="text" name="custId" style="WIDTH: 180px" value="${linkman.cstCustomer.custId}" /></td>
+								<td colspan="3">
+										<select name="customer.cid">
+											<c:forEach items="${list}" var="customer">
+                                    <%-- 当前联系人所属客户id和所有客户id比较 如果相同 选中当前的所属客户的名字--%>
+                                                <option value="${customer.cid}" <c:if test="${customer.cid == linkman.customer.cid}">selected</c:if>>${customer.custName}</option>
+											</c:forEach>
+										</select>
+								</td>
 							</tr>
 							<TR>
 								<td>联系人名称：</td>
@@ -58,9 +65,9 @@
 								</td>
 								<td>联系人性别：</td>
 								<td>
-								<input type="radio" value="1" name="lkmGender" <c:if test="${linkman.lkmGender=='1' }">checked</c:if>>男
+								<input type="radio" value="男" name="lkmGender" <c:if test="${linkman.lkmGender=='男' }">checked</c:if>>男
 								
-								<input type="radio" value="2" name="lkmGender" <c:if test="${linkman.lkmGender=='2' }">checked</c:if>>女
+								<input type="radio" value="女" name="lkmGender" <c:if test="${linkman.lkmGender=='女' }">checked</c:if>>女
 								</td>
 							</TR>
 							<TR>
