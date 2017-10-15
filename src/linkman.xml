@@ -25,9 +25,4 @@
     <bean id="linkmanDaoImpl" class="com.crm.dao.LinkManDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
-
-
-
-
 </beans>

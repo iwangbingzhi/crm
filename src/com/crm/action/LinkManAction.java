@@ -32,7 +32,33 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
         ServletActionContext.getRequest().setAttribute("listCustomer",listcustomer);
         return "toAddPage";
     }
-    //添加数据到数据库
+
+    /*上传文件：
+    * 需要上传文件流
+    * 需要上传文件名称
+    *1.在action成员变量位置定义变量 一个表示上传文件 一个表示文件名称
+    *2.生成变量的get set
+    *服务器只认mime类型文件
+    *
+    * struts上传文件 默认是2m 可以自己设置上传文件大小 在default.properties struts.multipart.maxSize=2097152
+    * */
+    //上传文件 变量名称是表单中文件上传项的name
+    private File upload;
+
+    //上传文件名称 表单里面文件上传项name值+FileName
+    private String uploadFileName;
+
+    public  File   getUpload() {
+        return upload;
+    }public void   setUpload(File upload) {
+        this.upload = upload;
+    }public String getUploadFileName() {
+        return uploadFileName;
+    }public void   setUploadFileName(String uploadFileName) {
+        this.uploadFileName = uploadFileName;
+    }
+
+    //添加本地数据
     public String addLinkMan() throws IOException {
         //判断是否需要上传文件
         if(upload != null) {
@@ -66,32 +92,6 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
         return linkMan;
     }
 
-    /*上传文件
-    * 需要上传文件流
-    * 需要上传文件名称
-    *1.在action成员变量位置定义变量 一个表示上传文件 一个表示文件名称
-    * 2.生成变量的get set
-    *服务器只认mime类型
-    *
-    * struts上传文件 默认是2m 可以自己设置上传文件大小 在default.properties struts.multipart.maxSize=2097152
-    * */
-    //上传文件 变量名称是表单中文件上传项的name
-    private File upload;
-
-    //上传文件名称 表单里面文件上传项name值+FileName
-    private String uploadFileName;
-
-    public  File   getUpload() {
-        return upload;
-    }public void   setUpload(File upload) {
-        this.upload = upload;
-    }public String getUploadFileName() {
-        return uploadFileName;
-    }public void   setUploadFileName(String uploadFileName) {
-        this.uploadFileName = uploadFileName;
-    }
-
-
     //联系人列表方法
     public String list(){
         List<LinkMan> list = linkManService.listLinkMan();
@@ -119,6 +119,5 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
         linkManService.update(linkMan);
         return "updateLinkman";
     }
-
 }
 

@@ -36,6 +36,9 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
         return "add";
     }
 
+
+
+
     //显示出客户列表方法
 
     //放数据进入值栈
