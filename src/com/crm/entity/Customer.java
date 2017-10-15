@@ -13,6 +13,17 @@ public class Customer {
     private String custSource;
     private String custPhone;
     private String custMobile;
+
+    //表示所有的拜访记录
+    private  Set<Visit> setCusVisit = new HashSet<Visit>();
+    public Set<Visit> getSetCusVisit() {
+        return setCusVisit;
+    }
+
+    public void setSetCusVisit(Set<Visit> setCusVisit) {
+        this.setCusVisit = setCusVisit;
+    }
+
     //表示所有的联系人
     private Set<LinkMan> setlinkman = new HashSet<LinkMan>();
 

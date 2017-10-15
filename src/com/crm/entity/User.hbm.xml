@@ -10,5 +10,10 @@
         <property name="username" column="username"/>
         <property name="password" column="password"/>
         <property name="address" column="address"/>
+        <!--表示多条拜访记录-->
+        <set name="setUserVisit">
+            <key column="uvid"/>
+            <one-to-many class="com.crm.entity.Visit"/>
+        </set>
     </class>
 </hibernate-mapping>

@@ -4,7 +4,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
     <!--设置上传文件大小-->
-    <constant name="struts.multipart.maxSize" value="200000000"/>
+  <!--  <constant name="struts.multipart.maxSize" value="200000000"/>-->
 
     <package name="demo1" extends="struts-default" namespace="/">
 <!--        class属性不写action全路径了，因为在spring配置文件中已创建了action对象，再写就创建2次了，

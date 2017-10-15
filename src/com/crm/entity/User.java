@@ -1,5 +1,8 @@
 package com.crm.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by 王炳智 on 2017/9/29.
  */
@@ -8,6 +11,18 @@ public class User {
     private String username;
     private String password;
     private String address;
+
+
+    //一个用户里面所有的拜访记录
+    private Set<Visit> setUserVisit = new HashSet<Visit>();
+
+    public Set<Visit> getSetUserVisit() {
+        return setUserVisit;
+    }
+
+    public void setSetUserVisit(Set<Visit> setUserVisit) {
+        this.setUserVisit = setUserVisit;
+    }
 
     public Integer getUid() {
         return uid;
