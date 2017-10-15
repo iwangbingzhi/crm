@@ -6,28 +6,6 @@ public class Visit {
     private String vaddress;
     private String vcontent;
 
-    //表示每个记录所属客户
-    private Customer customer;
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-
-    //表示每个拜访记录的所属用户
-    private User user;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Integer getVid() {
         return vid;
     }
@@ -51,4 +29,27 @@ public class Visit {
     public void setVcontent(String vcontent) {
         this.vcontent = vcontent;
     }
+
+    //表示每个记录所属客户
+    private Customer customer;
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+
+    //表示每个拜访记录的所属用户
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }

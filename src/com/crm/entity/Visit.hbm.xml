@@ -13,6 +13,6 @@
         <!--拜访记录所属用户-->
         <many-to-one name="user"  class="com.crm.entity.User" column="uvid"/>
         <!--拜访记录所属客户-->
-        <many-to-one name="customer" column="cvid" class="com.crm.entity.Visit"/>
+        <many-to-one name="customer" column="cvid" class="com.crm.entity.Customer"/>
     </class>
 </hibernate-mapping>

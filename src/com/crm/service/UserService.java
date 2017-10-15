@@ -4,6 +4,8 @@ import com.crm.dao.UserDao;
 import com.crm.entity.User;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by 王炳智 on 2017/9/29.
  */
@@ -19,5 +21,9 @@ public class UserService {
     public User login(User user) {
         return userDao.loginUser(user);
 
+    }
+
+    public List<User> findAll() {
+        return userDao.findAll();
     }
 }

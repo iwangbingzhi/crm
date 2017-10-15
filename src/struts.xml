@@ -7,7 +7,7 @@
   <!--  <constant name="struts.multipart.maxSize" value="200000000"/>-->
 
     <package name="demo1" extends="struts-default" namespace="/">
-<!--        class属性不写action全路径了，因为在spring配置文件中已创建了action对象，再写就创建2次了，
+<!--class属性不写action全路径了，因为在spring配置文件中已创建了action对象，再写就创建2次了，
 只需要写spring配置的action的bean的id值-->
         <action name="user_*" class="userAction" method="{1}">
             <result name="loginsuccess">index.htm</result>
@@ -39,6 +39,11 @@
             <!--到修改联系人的页面-->
             <result name="updatelinkman">/jsp/linkman/edit.jsp</result>
             <result name="updateLinkman" type="redirectAction">linkman_list</result>
+        </action>
+
+        <action name="visit_*" class="visitAction" method="{1}">
+            <result name="toAddPage">/jsp/visit/add.jsp</result>
+            <result name="addVisit">/jsp/success.jsp</result>
         </action>
     </package>
 </struts>
