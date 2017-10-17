@@ -44,6 +44,8 @@
         <action name="visit_*" class="visitAction" method="{1}">
             <result name="toAddPage">/jsp/visit/add.jsp</result>
             <result name="addVisit">/jsp/success.jsp</result>
+            <!--到拜访列表-->
+            <result name="list">/jsp/visit/list.jsp</result>
         </action>
     </package>
 </struts>

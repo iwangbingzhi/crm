@@ -51,4 +51,11 @@ public class VisitAction extends ActionSupport implements ModelDriven<Visit>{
         visitService.addVisit(visit);
         return "addVisit";
     }
+
+    //拜访列表方法
+    public String list(){
+        List<Visit> visitList = visitService.findAll();
+        ServletActionContext.getRequest().setAttribute("visitlist",visitList);
+        return "list";
+    }
 }
