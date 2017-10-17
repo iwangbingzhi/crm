@@ -7,8 +7,9 @@ import java.util.List;
 /**
  * Created by 王炳智 on 2017/9/29.
  */
-public interface CustomerDao {
-    void add(Customer customer);
+public interface CustomerDao extends BaseDao<Customer> {
+
+/*    void add(Customer customer);
 
     List<Customer> findAll();
 
@@ -16,7 +17,7 @@ public interface CustomerDao {
 
     void delete(Customer c);
 
-    void update(Customer customer);
+    void update(Customer customer); */
 
     void listpage(Integer currentPage);
 

@@ -13,30 +13,30 @@ import java.util.List;
 /**
  * Created by 王炳智 on 2017/9/29.
  */
-public class CustomerDaoImpl  extends HibernateDaoSupport implements CustomerDao {
+public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDao {
     //添加客户功能
-    public void add(Customer customer) {
+  /*  public void add(Customer customer) {
         this.getHibernateTemplate().save(customer);
     }
-
+*/
     //显示出客户列表功能
-    public List<Customer> findAll() {
+   /* public List<Customer> findAll() {
         return (List<Customer>) this.getHibernateTemplate().find("from Customer ");
-    }
+    }*/
 
     //删除客户
-    public Customer findOne(int cid) {
+  /*  public Customer findOne(int cid) {
         return this.getHibernateTemplate().get(Customer.class,cid);
-    }
+    }*/
 
-    public void delete(Customer c) {
+   /* public void delete(Customer c) {
         this.getHibernateTemplate().delete(c);
     }
-
+*/
     //修改客户数据
-    public void update(Customer customer) {
+   /* public void update(Customer customer) {
         this.getHibernateTemplate().update(customer);
-    }
+    }*/
 
     //分页页面
     public void listpage(Integer currentPage) {
