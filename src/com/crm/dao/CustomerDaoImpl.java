@@ -97,7 +97,6 @@ public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDa
         detachedCriteria.add(Restrictions.like("custName","%"+customer.getCustName()+"%"));
         //3.调用hibernate模板的方法 放list集合
         List<Customer> list = (List<Customer>) this.getHibernateTemplate().findByCriteria(detachedCriteria);
-
         return list;
     }
 }

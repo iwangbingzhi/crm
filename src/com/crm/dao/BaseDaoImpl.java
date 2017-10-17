@@ -24,7 +24,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 
         //3.得到实际的类型参数<Customer>里面的customer实体
         Type[] types = ptype.getActualTypeArguments();
-        //type接口的实现类是Class,因为数组中只有一个值，所以只用取[0]
+        //3.1type接口的实现类是Class,因为数组中只有一个值，所以只用取[0]
         Class tclass = (Class) types[0];
         //System.out.println("!!!!!!!"+pclass);
         this.pClass = tclass;
