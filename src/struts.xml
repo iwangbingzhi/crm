@@ -26,6 +26,8 @@
             <result name="update" type="redirectAction">customer_list.action</result>
             <result name="listpage">/jsp/customer/listpage.jsp</result>
             <result name="listcondition">/jsp/customer/list.jsp</result>
+            <result name="toSelectCustomerPage">/jsp/select/select.jsp</result>
+            <result name="moreCondition">/jsp/customer/list.jsp</result>
         </action>
 
         <action name="linkman_*" class="linkManAction" method="{1}">
@@ -39,6 +41,9 @@
             <!--到修改联系人的页面-->
             <result name="updatelinkman">/jsp/linkman/edit.jsp</result>
             <result name="updateLinkman" type="redirectAction">linkman_list</result>
+            <!--到查询联系人界面-->
+            <result name="toSelectPage">/jsp/select/linkman.jsp</result>
+            <result name="moreCondition">/jsp/linkman/list.jsp</result>
         </action>
 
         <action name="visit_*" class="visitAction" method="{1}">

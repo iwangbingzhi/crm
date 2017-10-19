@@ -8,6 +8,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,6 +45,7 @@ public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDa
     }
 
     //查询总记录数
+    @SuppressWarnings("all")
     public int findCount() {
         List<Object> list = (List<Object>) this.getHibernateTemplate().find("select count(*) from Customer");
         //从list中把值得到
@@ -58,6 +60,7 @@ public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDa
     }
 
     //分页查询操作
+    @SuppressWarnings("all")
     public List<Customer> findPage(int begin, int pageSize) {
 /*        //第一种 使用hibernate底层代码实现（了解）
         SessionFactory sessionFactory = this.getHibernateTemplate().getSessionFactory();
@@ -76,6 +79,7 @@ public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDa
     }
 
     //条件查询 三种方式做到
+    @SuppressWarnings("all")
     public List<Customer> findCondition(Customer customer) {
        /*   //第一种 使用hibernate底层代码实现（了解）
         SessionFactory sessionFactory = this.getHibernateTemplate().getSessionFactory();
@@ -99,4 +103,54 @@ public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDa
         List<Customer> list = (List<Customer>) this.getHibernateTemplate().findByCriteria(detachedCriteria);
         return list;
     }
+/*    //多条件组合查询(会用)
+    @Override
+    @SuppressWarnings("all")
+    public List<Customer> findMoreCondition(Customer customer) {
+        //使用find方法实现
+        //拼接hql语句实现
+        String hql = "from Customer where 1=1 ";
+        //创建list集合 如果是值不为空，把值设置到list里
+        List<Object> p = new ArrayList<Object>();
+
+        //判断条件值是否为空 如果不为空凭借hql实现
+        if(customer.getCustName()!=null && !"".equals(customer.getCustName())){
+            //拼接hql
+            hql += " and custName=?";
+            //把值设置到list里
+            p.add(customer.getCustName());
+        }
+        if (customer.getCustLevel()!=null && !"".equals(customer.getCustLevel())){
+            hql += " and custLevel=?";
+            p.add(customer.getCustLevel());
+        }
+        if (customer.getCustSource()!=null && !"".equals(customer.getCustSource())){
+            hql += " and custSource=?";
+            p.add(customer.getCustSource());
+        }
+        System.out.println("hql:"+hql);
+        System.out.println("list:"+p);
+        return (List<Customer>) this.getHibernateTemplate().find(hql,p.toArray());
+    }*/
+
+    //多条件组合查询(常用)
+    @Override
+    @SuppressWarnings("all")
+    public List<Customer> findMoreCondition(Customer customer) {
+        //创建离线对象，指定他对那个实体类进行操作
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Customer.class);
+        //判断输入的条件值是否为空
+        if(customer.getCustName()!=null && !"".equals(customer.getCustName())){
+            //对属性设置值
+            detachedCriteria.add(Restrictions.eq("custName",customer.getCustName()));
+        }
+        if (customer.getCustLevel()!=null && !"".equals(customer.getCustLevel())){
+            detachedCriteria.add(Restrictions.eq("custLevel",customer.getCustLevel()));
+        }
+        if (customer.getCustSource()!=null && !"".equals(customer.getCustSource())){
+            detachedCriteria.add(Restrictions.eq("custSource",customer.getCustSource()));
+        }
+        return (List<Customer>) this.getHibernateTemplate().findByCriteria(detachedCriteria);
+    }
 }
+

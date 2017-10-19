@@ -119,5 +119,18 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
         linkManService.update(linkMan);
         return "updateLinkman";
     }
+    //联系人查询
+    public String toSelectPage(){
+        List<Customer> list = customerService.findAll();
+        ServletActionContext.getRequest().setAttribute("list",list);
+        return "toSelectPage";
+    }
+    //多条件联系人查询
+    public String moreCondition(){
+        //调用方法得到条件结果
+        List<LinkMan> list = linkManService.findCondition(linkMan);
+        ServletActionContext.getRequest().setAttribute("list",list);
+        return "moreCondition";
+    }
 }
 

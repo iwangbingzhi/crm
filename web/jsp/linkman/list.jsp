@@ -89,7 +89,7 @@
 													<TD>操作</TD>
 												</TR>
 												<c:forEach items="${list }" var="linkman">
-												<TR
+												<tr
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 													<TD>${linkman.lkmName }</TD>
 													<TD>${linkman.lkmGender }</TD>
@@ -97,12 +97,12 @@
 													<TD>${linkman.lkmMobile }</TD>
 													<td>${linkman.customer.custName}</td>  <%--配置过滤器 防止no session的情况出现--%>
 													
-													<TD>
+													<td>
 													<a href="${pageContext.request.contextPath }/linkman_updateLinkMan.action?linkid=${linkman.linkid}">修改</a>
 
 													<a href="${pageContext.request.contextPath }">删除</a>
-													</TD>
-												</TR>
+													</td>
+												</tr>
 												
 												</c:forEach>
 

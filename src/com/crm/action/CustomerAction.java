@@ -120,5 +120,16 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
         }
         return "listcondition";
     }
+    //到查询客户信息的页面
+    public String toSelectCustomerPage(){
+
+        return "toSelectCustomerPage";
+    }
+    //多条件查询
+    public String moreCondition(){
+        List<Customer> list = customerService.findMoreCondition(customer);
+        ServletActionContext.getRequest().setAttribute("list",list);
+        return "moreCondition";
+    }
 
 }

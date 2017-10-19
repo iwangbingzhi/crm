@@ -73,4 +73,8 @@ public class CustomerService {
     public List<Customer> findCondition(Customer customer) {
         return customerDao.findCondition(customer);
     }
+
+    public List<Customer> findMoreCondition(Customer customer) {
+        return customerDao.findMoreCondition(customer);
+    }
 }

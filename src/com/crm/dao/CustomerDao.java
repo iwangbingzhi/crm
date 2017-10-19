@@ -26,4 +26,6 @@ public interface CustomerDao extends BaseDao<Customer> {
     List<Customer> findPage(int begin, int pageSize);
 
     List<Customer> findCondition(Customer customer);
+
+    List<Customer> findMoreCondition(Customer customer);
 }
