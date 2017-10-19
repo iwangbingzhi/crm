@@ -53,7 +53,6 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
     @SuppressWarnings("all")
     public T findOne(int id) {
        return (T) this.getHibernateTemplate().get(pClass, id);
-
     }
 
     @Override
