@@ -50,12 +50,14 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 
     //根据id查询
     @Override
+    @SuppressWarnings("all")
     public T findOne(int id) {
        return (T) this.getHibernateTemplate().get(pClass, id);
 
     }
 
     @Override
+    @SuppressWarnings("all")
     public List<T> findAll() {
         //使用class里面的getSimpleName()得到类的名称
         return (List<T>) this.getHibernateTemplate().find("from "+pClass.getSimpleName());
