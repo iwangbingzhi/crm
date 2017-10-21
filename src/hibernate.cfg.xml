@@ -13,5 +13,6 @@
         <mapping resource="com/crm/entity/Customer.hbm.xml"/>
         <mapping resource="com/crm/entity/LinkMan.hbm.xml"/>
         <mapping resource="com/crm/entity/Visit.hbm.xml"/>
+        <mapping resource="com/crm/entity/Dict.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

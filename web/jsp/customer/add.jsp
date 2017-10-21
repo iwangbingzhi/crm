@@ -49,7 +49,7 @@
 						<TABLE cellSpacing=0 cellPadding=5  border=0>
 						  
 						    
-							<TR>
+							<tr>
 								<td>客户名称：</td>
 								<td>
 								<INPUT class=textbox id=sChannel2
@@ -57,13 +57,15 @@
 								</td>
 								<td>客户级别 ：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custLevel">
+                                    <select name="dictCustLevel.did">
+                                        <c:forEach items="${listDict}" var="dict">
+                                                <option value="${dict.did}">${dict.dname}</option>
+                                        </c:forEach>
+                                    </select>
 								</td>
-							</TR>
+							</tr>
 							
 							<TR>
-								
 								<td>信息来源 ：</td>
 								<td>
 								<INPUT class=textbox id=sChannel2

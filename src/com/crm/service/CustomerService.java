@@ -2,6 +2,7 @@ package com.crm.service;
 
 import com.crm.dao.CustomerDao;
 import com.crm.entity.Customer;
+import com.crm.entity.Dict;
 import com.crm.entity.PageBean;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -76,5 +77,9 @@ public class CustomerService {
 
     public List<Customer> findMoreCondition(Customer customer) {
         return customerDao.findMoreCondition(customer);
+    }
+    //查询客户级别
+    public List<Dict> findAllDictLevel() {
+        return customerDao.findAllDictLevel();
     }
 }

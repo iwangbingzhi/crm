@@ -91,10 +91,10 @@
 												</TR>
 											<%--数据放入域对象采用如下方式(此方法性能差)--%>  <%--(注意是英文的问号！！！！！)--%>
 												<c:forEach items="${list }" var="customer">
-												<TR
+												<tr
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 													<TD>${customer.custName }</TD>
-													<TD>${customer.custLevel }</TD>
+													<TD>${customer.dictCustLevel.dname }</TD>
 													<TD>${customer.custSource }</TD>
 													<TD>${customer.custPhone }</TD>
 													<TD>${customer.custMobile }</TD>
@@ -103,7 +103,7 @@
 
 														<a href="${pageContext.request.contextPath }/customer_showCustomer.action?cid=${customer.cid}">修改</a>
 													</TD>
-												</TR>
+												</tr>
 												
 												</c:forEach>
 											<%--数据放入值栈采用如下方式

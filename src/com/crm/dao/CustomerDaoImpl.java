@@ -1,6 +1,7 @@
 package com.crm.dao;
 
 import com.crm.entity.Customer;
+import com.crm.entity.Dict;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -144,13 +145,20 @@ public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDa
             //对属性设置值
             detachedCriteria.add(Restrictions.eq("custName",customer.getCustName()));
         }
-        if (customer.getCustLevel()!=null && !"".equals(customer.getCustLevel())){
-            detachedCriteria.add(Restrictions.eq("custLevel",customer.getCustLevel()));
-        }
+       /* if (customer.getDictCustLevel().getDid()!=null && !"".equals(customer.getDictCustLevel().getDid())){
+            detachedCriteria.add(Restrictions.eq("dictCustLevel.did",customer.getDictCustLevel().getDid()));
+        }*/
         if (customer.getCustSource()!=null && !"".equals(customer.getCustSource())){
             detachedCriteria.add(Restrictions.eq("custSource",customer.getCustSource()));
         }
         return (List<Customer>) this.getHibernateTemplate().findByCriteria(detachedCriteria);
+    }
+
+    @SuppressWarnings("all")
+    //查询客户级别
+    @Override
+    public List<Dict> findAllDictLevel() {
+        return (List<Dict>) this.getHibernateTemplate().find("from Dict");
     }
 }
 

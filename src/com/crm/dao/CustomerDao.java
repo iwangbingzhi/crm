@@ -1,6 +1,7 @@
 package com.crm.dao;
 
 import com.crm.entity.Customer;
+import com.crm.entity.Dict;
 
 import java.util.List;
 
@@ -28,4 +29,6 @@ public interface CustomerDao extends BaseDao<Customer> {
     List<Customer> findCondition(Customer customer);
 
     List<Customer> findMoreCondition(Customer customer);
+
+    List<Dict> findAllDictLevel();
 }

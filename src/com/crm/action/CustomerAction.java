@@ -1,6 +1,7 @@
 package com.crm.action;
 
 import com.crm.entity.Customer;
+import com.crm.entity.Dict;
 import com.crm.entity.PageBean;
 import com.crm.service.CustomerService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -27,6 +28,9 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 
     //到添加客户的页面
     public String toAddPage(){
+        //查询所有的客户级别
+        List<Dict> listDict = customerService.findAllDictLevel();
+        ServletActionContext.getRequest().setAttribute("listDict",listDict);
         return "toAddPage";
     }
 
